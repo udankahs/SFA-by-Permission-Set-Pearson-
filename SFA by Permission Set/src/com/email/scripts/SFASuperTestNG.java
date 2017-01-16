@@ -24,7 +24,7 @@ public class SFASuperTestNG {
 
 	@BeforeMethod
 	public void preCondition() throws UnsupportedEncodingException {
-		String JarPath = GetFieldsAcceble.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+		String JarPath = GetPermissionDetail.class.getProtectionDomain().getCodeSource().getLocation().getPath();
 		String unformattedFolderPath = JarPath.substring(0, JarPath.lastIndexOf("/") + 1);
 		String folderPath = URLDecoder.decode(unformattedFolderPath, "UTF-8");
 

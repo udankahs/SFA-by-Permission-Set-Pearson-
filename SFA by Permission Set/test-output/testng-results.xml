@@ -11,16 +11,16 @@
       <![CDATA[</body></html>]]>
     </line>
   </reporter-output>
-  <suite name="Default suite" duration-ms="26850" started-at="2017-01-16T10:02:33Z" finished-at="2017-01-16T10:02:59Z">
+  <suite name="Default suite" duration-ms="106670" started-at="2017-01-16T13:10:20Z" finished-at="2017-01-16T13:12:07Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="26850" started-at="2017-01-16T10:02:33Z" finished-at="2017-01-16T10:02:59Z">
-      <class name="com.email.scripts.GetFieldsAcceble">
-        <test-method status="PASS" signature="preCondition()[pri:0, instance:com.email.scripts.GetFieldsAcceble@1ceabc1]" name="preCondition" is-config="true" duration-ms="5438" started-at="2017-01-16T11:02:33Z" finished-at="2017-01-16T11:02:38Z">
+    <test name="Default test" duration-ms="106670" started-at="2017-01-16T13:10:20Z" finished-at="2017-01-16T13:12:07Z">
+      <class name="com.email.scripts.GetPermissionDetail">
+        <test-method status="PASS" signature="preCondition()[pri:0, instance:com.email.scripts.GetPermissionDetail@1ceabc1]" name="preCondition" is-config="true" duration-ms="4615" started-at="2017-01-16T14:10:20Z" finished-at="2017-01-16T14:10:25Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- preCondition -->
-        <test-method status="PASS" signature="getFields()[pri:0, instance:com.email.scripts.GetFieldsAcceble@1ceabc1]" name="getFields" duration-ms="19844" started-at="2017-01-16T11:02:38Z" finished-at="2017-01-16T11:02:58Z">
+        <test-method status="PASS" signature="getFields()[pri:0, instance:com.email.scripts.GetPermissionDetail@1ceabc1]" name="getFields" duration-ms="100471" started-at="2017-01-16T14:10:25Z" finished-at="2017-01-16T14:12:05Z">
           <reporter-output>
             <line>
               <![CDATA[<html><head><style>table, th, td { border: 1px solid black; border-collapse: collapse;}</style></head><body>]]>
@@ -33,11 +33,11 @@
             </line>
           </reporter-output>
         </test-method> <!-- getFields -->
-        <test-method status="PASS" signature="postCondition()[pri:0, instance:com.email.scripts.GetFieldsAcceble@1ceabc1]" name="postCondition" is-config="true" duration-ms="1512" started-at="2017-01-16T11:02:58Z" finished-at="2017-01-16T11:02:59Z">
+        <test-method status="PASS" signature="postCondition()[pri:0, instance:com.email.scripts.GetPermissionDetail@1ceabc1]" name="postCondition" is-config="true" duration-ms="1527" started-at="2017-01-16T14:12:05Z" finished-at="2017-01-16T14:12:07Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- postCondition -->
-      </class> <!-- com.email.scripts.GetFieldsAcceble -->
+      </class> <!-- com.email.scripts.GetPermissionDetail -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

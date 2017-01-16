@@ -27,11 +27,11 @@ public class SFA_Main {
 
 		TestListenerAdapter tla = new TestListenerAdapter();
 		TestNG testng = new TestNG();
-		testng.setTestClasses(new Class[] { GetFieldsAcceble.class });
+		testng.setTestClasses(new Class[] { GetPermissionDetail.class });
 		testng.addListener(tla);
 		testng.run();
 
-		String JarPath = GetFieldsAcceble.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+		String JarPath = GetPermissionDetail.class.getProtectionDomain().getCodeSource().getLocation().getPath();
 		String unformattedFolderPath = JarPath.substring(0, JarPath.lastIndexOf("/") + 1);
 		String folderPath = URLDecoder.decode(unformattedFolderPath, "UTF-8");
 
