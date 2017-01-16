@@ -59,23 +59,26 @@ public class GetPermissionDetail extends SFASuperTestNG
 			for (int a = 1; a < PrmSetCount; a++)
 			{
 				String PrmSet = ExcelLib.getCellValue(dataSheetPath, sheetName, a, 2);
+				Reporter.log("</br><table><tr><th><b>Permission Set taken : "+PrmSet+ "</b></th></tr></table>", true);
 				gotoPermissionSet.gotoFieldAaccebilty();
-				if (gotoPermissionSet.verifyPermissionVisibility("TestPermissionSet"))
+				if (gotoPermissionSet.verifyPermissionVisibility(PrmSet))
 				{
-					System.out.println("verifyPermissionVisibility : True");
 					verifyObjectSettings.validateObjectSettings(decodedPath + "Baseline Data/Baseline Excel_" + PrmSet + ".xls");
 					
 					int ObjCount = ExcelLib.getRowCountofColumn(dataSheetPath, PrmSet, 0);
 					
 					for (int b=1; b<ObjCount; b++)
 					{
-						String Obj = ExcelLib.getCellValue(dataSheetPath, sheetName, a, 2);
+						String Obj = ExcelLib.getCellValue(dataSheetPath, PrmSet, a, 0);
+						Reporter.log("</br><table><tr><th><b>Record Type Assignments</b></th></tr></table>", true);
 						verifyRecordTypeAssignments.validateRecordTypeAssignments(Obj, decodedPath + "Baseline Data/Baseline Excel_" + PrmSet + ".xls");
+						
+						Reporter.log("</br><table><tr><th><b>Field Permissions</b></th></tr></table>", true);
 						verifyFieldPermissions.validateFieldPermissions(Obj, decodedPath + "Baseline Data/Baseline Excel_" + PrmSet + ".xls");
 					}
 				} else
 				{
-					System.out.println("verifyPermissionVisibility : False");
+					Reporter.log("<table><tr><th><b>ERROR : Permission Set "+PrmSet+" not available in the application!!</b></th></tr></table>", true);
 				}
 			}
 		} else

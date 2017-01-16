@@ -23,21 +23,24 @@ public class ExcelLib {
 	public static int getRowCountofColumn(String xlPath, String sheetName, int ColumnNumber) {
 
 		try {
+			String data;
 			InputStream is = new FileInputStream(xlPath);
 			Workbook wb = WorkbookFactory.create(is);
 			Sheet sheet = wb.getSheet(sheetName);
-			Iterator<?> rowIter = sheet.rowIterator();
+			Iterator rowIter = sheet.rowIterator();
 			Row r = (Row) rowIter.next();
 			short lastCellNum = r.getLastCellNum();
 			int[] dataCount = new int[lastCellNum];
 			int col = 0;
 			rowIter = sheet.rowIterator();
 			while (rowIter.hasNext()) {
-				Iterator<?> cellIter = ((Row) rowIter.next()).cellIterator();
+				Iterator cellIter = ((Row) rowIter.next()).cellIterator();
 				while (cellIter.hasNext()) {
 					Cell cell = (Cell) cellIter.next();
 					col = cell.getColumnIndex();
 					dataCount[col] += 1;
+					DataFormatter df = new DataFormatter();
+					data = df.formatCellValue(cell);
 				}
 			}
 			is.close();
@@ -67,12 +70,10 @@ public class ExcelLib {
 	}
 
 	public static String getCellValue(String xlPath, String sheetName, int rowNum, int cellNum) {
-		try 
-		{
-			String v = new DataFormatter().formatCellValue(WorkbookFactory.create(new FileInputStream(xlPath)).getSheet(sheetName).getRow(rowNum).getCell(cellNum));
-			return v;
-		} 
-		catch (Exception e) {
+		try {
+			String u = new DataFormatter().formatCellValue(WorkbookFactory.create(new FileInputStream(xlPath)).getSheet(sheetName).getRow(rowNum).getCell(cellNum));
+			return u;
+		} catch (Exception e) {
 			System.out.println(e);
 			return "";
 		}

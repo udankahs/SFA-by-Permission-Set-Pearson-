@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Reporter;
+
 import com.lib.ExcelLib;
 
 /* Owner 			: Udanka H S
@@ -64,6 +66,9 @@ public class VerifyObjectSettings {
 	public void validateObjectSettings (String baselinepath) {
 		
 		int numOfObj = ExcelLib.getRowCountofColumn(baselinepath, "Object Settings", 0);
+		System.out.println("numOfObj :"+numOfObj);
+		
+		Reporter.log("<table><tr bgcolor='gray'><th><b>STATUS </th></b> <th><b> OBJECT </th></b><th><b> SOURCE OBJECT PERMISSION(Excel)</b></th><th><b> TARGET OBJECT PERMISSION(Excel)</b></th><th><b> SOURCE TOTAL FIELDS(Excel)</b></th><th><b> TARGET TOTAL FIELDS(Excel)</b></th></tr>",true);
 
 		for(int a=1 ; a<numOfObj ; a++)
 		{
@@ -71,28 +76,27 @@ public class VerifyObjectSettings {
 			srcObjPerm = ExcelLib.getCellValue(baselinepath, "Object Settings", a, 1);
 			srcTotalFields = ExcelLib.getCellValue(baselinepath, "Object Settings", a, 2);
 			
-			System.out.println("srcObjPerm "+srcObjPerm+" && srcTotalFields : "+srcTotalFields);
+			System.out.println("Obj : "+Obj+"srcObjPerm :"+srcObjPerm+" srcTotalFields :"+srcTotalFields);
 			
-			if (driver.findElements(By.xpath("//span[@class='pcGhost']//a[text()='"+Obj+"']")).size() > 0) {
-				tarObjPerm = driver.findElement(By.xpath("//span[@class='pcGhost']//a[text()='"+Obj+"']/../../../td[2]")).getText();
-				tarTotalFields = driver.findElement(By.xpath("//span[@class='pcGhost']//a[text()='"+Obj+"']/../../../td[3]")).getText();
-				
-				System.out.println("tarObjPerm "+tarObjPerm+" && tarTotalFields : "+tarTotalFields);
+			if (driver.findElements(By.xpath("//td[@colspan='1']//a[text()='"+Obj+"']")).size() > 0) 
+			{
+				tarObjPerm = driver.findElement(By.xpath("//td[@colspan='1']//a[text()='"+Obj+"']/../../../td[2]")).getText();
+				tarTotalFields = driver.findElement(By.xpath("//td[@colspan='1']//a[text()='"+Obj+"']/../../../td[3]")).getText();
 				
 				if(srcObjPerm.equalsIgnoreCase(tarObjPerm) && srcTotalFields.equalsIgnoreCase(tarTotalFields))
 				{
-					System.out.println("PASS : Object Name , Object Permissions, Total Fields matches!!");
+					Reporter.log("<tr><th><b><font color = 'green'> PASS  </th></b> <th><b> "+Obj+" </th></b><th><b> "+srcObjPerm+"</b></th><th><b> "+tarObjPerm+"</b></th><th><b> "+srcTotalFields+"</b></th><th><b> "+tarTotalFields+"</b></th></tr>",true);
 				}
 				else
 				{
-					System.out.println("FAIL : Object Name , Object Permissions, Total Fields doesn't match!!");
+					Reporter.log("<tr><th><b><font color = 'red'> FAIL  </th></b> <th><b> "+Obj+" </th></b><th><b> "+srcObjPerm+"</b></th><th><b> "+tarObjPerm+"</b></th><th><b> "+srcTotalFields+"</b></th><th><b> "+tarTotalFields+"</b></th></tr>",true);
 				}
-				
 			} 
 			else
 			{
-				System.out.println("FAIL : Field not found in the application!!");
+				Reporter.log("<tr><th><b> <font color = 'red'> FAIL </b></th> <th><b> "+Obj+"  </b></th><th colspan=\"4\"><b> Object not found in the application </b></th></tr>",true);
 			}
 		}
+		Reporter.log("</table>",true);
 	}
 }
