@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+    <line>
+      <![CDATA[<html><head><style>table, th, td { border: 1px solid black; border-collapse: collapse;}</style></head><body>]]>
+    </line>
+    <line>
+      <![CDATA[<table><tr><th bgcolor='#00b2b3'><b>Login Status: </th ><td><b>Login Successfull</b></td></tr></table>]]>
+    </line>
+    <line>
+      <![CDATA[</body></html>]]>
+    </line>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="26850" started-at="2017-01-16T10:02:33Z" finished-at="2017-01-16T10:02:59Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="26850" started-at="2017-01-16T10:02:33Z" finished-at="2017-01-16T10:02:59Z">
+      <class name="com.email.scripts.GetFieldsAcceble">
+        <test-method status="PASS" signature="preCondition()[pri:0, instance:com.email.scripts.GetFieldsAcceble@1ceabc1]" name="preCondition" is-config="true" duration-ms="5438" started-at="2017-01-16T11:02:33Z" finished-at="2017-01-16T11:02:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- preCondition -->
+        <test-method status="PASS" signature="getFields()[pri:0, instance:com.email.scripts.GetFieldsAcceble@1ceabc1]" name="getFields" duration-ms="19844" started-at="2017-01-16T11:02:38Z" finished-at="2017-01-16T11:02:58Z">
+          <reporter-output>
+            <line>
+              <![CDATA[<html><head><style>table, th, td { border: 1px solid black; border-collapse: collapse;}</style></head><body>]]>
+            </line>
+            <line>
+              <![CDATA[<table><tr><th bgcolor='#00b2b3'><b>Login Status: </th ><td><b>Login Successfull</b></td></tr></table>]]>
+            </line>
+            <line>
+              <![CDATA[</body></html>]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- getFields -->
+        <test-method status="PASS" signature="postCondition()[pri:0, instance:com.email.scripts.GetFieldsAcceble@1ceabc1]" name="postCondition" is-config="true" duration-ms="1512" started-at="2017-01-16T11:02:58Z" finished-at="2017-01-16T11:02:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- postCondition -->
+      </class> <!-- com.email.scripts.GetFieldsAcceble -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
